@@ -42,7 +42,7 @@ const incrementar =()=>{
           </button>
         </div>
       </div>
-      <!-- FIN GUITARRA -->
+      <!-- FIN GUITARR -->
 
 </template>
 
