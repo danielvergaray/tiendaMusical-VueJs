@@ -1,7 +1,4 @@
 <script setup>
-import {ref} from 'vue'
-
-const numero = ref (0)
 
 const props = defineProps ({
   guitarra:{
@@ -10,9 +7,9 @@ const props = defineProps ({
   }
 })
 
-const incrementar =()=>{
-  numero.value++
-}
+defineEmits(['agregar-carrito'])
+
+
 </script>
 
 <template>
@@ -28,14 +25,14 @@ const incrementar =()=>{
         <div class="col-8">
           <h3 class="text-black fs-4 fw-bold text-uppercase">{{ guitarra.nombre }}</h3>
           <p>
-            <p>{{ numero }}</p> <!-- Cuando se esta en template no hacer falta usar el .value (numero.value) a pesar de ser un ref -->
+            <!-- <p>{{ numero }}</p> --> <!-- Cuando se esta en template no hacer falta usar el .value (numero.value) a pesar de ser un ref -->
             {{ guitarra.descripciom }}
           </p>
           <p class="fw-black text-primary fs-3">{{ guitarra.precio }}</p>
           <button 
           type="button" 
           class="btn btn-dark w-100"
-          v-on:click="/* numero++ */ incrementar"
+          @click="$emit('agregar-carrito', guitarra)"
           
           >
             Agregar al Carrito
